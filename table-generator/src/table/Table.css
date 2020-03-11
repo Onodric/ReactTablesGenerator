@@ -1,0 +1,12 @@
+.table {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    margin: 0.5em;
+}
+
+.info {
+    display: flex;
+    align-content: space-between;
+    padding-top: 0.5rem;
+}

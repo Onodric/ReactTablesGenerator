@@ -1,68 +1,37 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Welcome to the react Tables Generator
 
-## Available Scripts
+[Deployment](https://onodric.github.io/)
 
-In the project directory, you can run:
+## Time spent on challenges:
 
-### `npm start`
+1. 13 hours
+2. 4 hours
+3. 3 hours
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Total 20 hours of three business days.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Rules
 
-### `npm test`
+### Solve problem No. 1 in within three days.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+You’ll earn bonus points if you can solve problem No. 2 and/or No. 3.
 
-### `npm run build`
+### For coding challenges (No. 1 and No. 2), provide results as:
+A. Source Code in an online github account OR as a ZIP file
+B. Deployed Example (for No. 1) online someplace (e.g. static files in S3)
+C. Sample test.output (for No. 2)
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Provide results inline in your email response or as a separate document for the SQL skills test (No. 3).
+Solve this yourself without help from anyone else. Feel free to reference online help - stackoverflow, google, etc.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Part 1 Requisites
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+1. Built with ReactJS/Redux
+1. I have not worked with React in three years
+1. No jQuery needed. No frameworks needed. This includes style frameworks like Bootstrap or Material (which I love)
+1. Tables start in the state proscribed
+1. Behavior is encoded
+1. Tables are resized in reference to window
+1. Blue table disappers at the 967px breakpoint. Remaining tables double their proportional percentage width.
+1. Green table moves below red table at 575px breakpoint. Tables expand to 100% (minus 2rem for gutters)
+1. Configure Button behavior….

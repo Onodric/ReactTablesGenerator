@@ -11,6 +11,10 @@
     align-items: center;
 }
 
+.label-field.table-name .config-label{
+    width: 3em;
+}
+
 span.config-label {
     padding-left: 0.5rem;
 }
@@ -21,6 +25,18 @@ span.config-label {
 
 .red {
     color: red;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.green {
+    color: green;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.blue {
+    color: blue;
     text-transform: uppercase;
     font-weight: 600;
 }

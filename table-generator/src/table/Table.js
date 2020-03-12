@@ -3,10 +3,31 @@ import './Table.css'
 import { TableRow } from './TableRow';
 
 export class Table extends React.Component {
+  tableConfig = ""
+  numCellsNeeded = 0;
+  numRowsNeeded = 0;
+  sizeOfArray = 0;
+  
+  constructor(props) {
+    super(props)
+    this.tableConfig = props.settings;
+    this.setCellsAndRowsNeeded(props.settings.n, 
+                               props.settings.m, 
+                               props.settings.x)
+  }
+
+  setCellsAndRowsNeeded(min, max, step){
+    this.numCellsNeeded = Math.floor((max - min + 1) / step);
+    this.numRowsNeeded = Math.ceil(this.numCellsNeeded / 5);
+    this.sizeOfArray = this.numRowsNeeded * 5;
+  }
+
+  onConfigure(event) {
+    this.props.configure(this.tableConfig);
+  }
+
   render() {
     console.info('props', this.props.settings)
-    const cellArrLen = 20;
-
     return (
       <div className="table">
         <section className="rows">
@@ -17,11 +38,12 @@ export class Table extends React.Component {
           <TableRow />
         </section>
         <section className="info">
-          <button>
+          <button className="configure-btn"
+                  onClick={(this.onConfigure.bind(this))}>
             Configure
           </button>
-          <span>
-            20%
+          <span className="width-indicator">
+            {this.props.settings.w}%
           </span>
         </section>
       </div>

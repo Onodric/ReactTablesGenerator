@@ -22,30 +22,47 @@ button {
 .App {
   width: 100%;
   display: flex;
+  flex-direction: column;
   align-content: space-around;
 }
 
-.App > .tbl {
+.App > .table-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.App > .table-container > .tbl {
   margin: 1em;
 }
 
-.App > .red-table {
+.App > .table-container > .red-table {
   width: 20%;
   display: flex;
   align-content: space-around;
   border: 1px red solid;
 }
 
-.App > .green-table {
+.App > .table-container > .green-table {
   width: 30%;
   display: flex;
   align-content: space-around;
   border: 1px green solid;
 }
 
-.App > .blue-table {
+.App > .table-container > .blue-table {
   width: 40%;
   display: flex;
   align-content: space-around;
   border: 1px blue solid;
+}
+
+.App > .config-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.App > .config-container > .config-panel {
+  display: flex;
+  flex-direction: column;
 }

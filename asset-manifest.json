@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/ReactTablesGenerator/static/css/main.9b689d91.chunk.css",
+    "main.js": "/ReactTablesGenerator/static/js/main.fb229d80.chunk.js",
+    "main.js.map": "/ReactTablesGenerator/static/js/main.fb229d80.chunk.js.map",
+    "runtime-main.js": "/ReactTablesGenerator/static/js/runtime-main.a8be3ae0.js",
+    "runtime-main.js.map": "/ReactTablesGenerator/static/js/runtime-main.a8be3ae0.js.map",
+    "static/js/2.87c9b25e.chunk.js": "/ReactTablesGenerator/static/js/2.87c9b25e.chunk.js",
+    "static/js/2.87c9b25e.chunk.js.map": "/ReactTablesGenerator/static/js/2.87c9b25e.chunk.js.map",
+    "index.html": "/ReactTablesGenerator/index.html",
+    "precache-manifest.aaa2e57d493f8cd7f887f681d6d1b2b2.js": "/ReactTablesGenerator/precache-manifest.aaa2e57d493f8cd7f887f681d6d1b2b2.js",
+    "service-worker.js": "/ReactTablesGenerator/service-worker.js",
+    "static/css/main.9b689d91.chunk.css.map": "/ReactTablesGenerator/static/css/main.9b689d91.chunk.css.map",
+    "static/js/2.87c9b25e.chunk.js.LICENSE.txt": "/ReactTablesGenerator/static/js/2.87c9b25e.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a8be3ae0.js",
+    "static/js/2.87c9b25e.chunk.js",
+    "static/css/main.9b689d91.chunk.css",
+    "static/js/main.fb229d80.chunk.js"
+  ]
+}

@@ -7,10 +7,12 @@ export class Configuration extends Component {
   max = 0;
   step = 0;
   width = 20;
-  direction = 'lu'
+  direction = 'LTR-UP'
 
   constructor(props) {
     super(props);
+
+    this.state = props;
     this.initFields(props.settings);
   }
 
@@ -27,11 +29,43 @@ export class Configuration extends Component {
     this.min = event.target.value;
   }
 
+  onXChange(event) {
+    this.step = event.target.value;
+  }
+
+  onMChange(event) {
+    this.max = event.target.value;
+  }
+
+  onWChange(event) {
+    this.width = event.target.value;
+  }
+
+  onDChange(event) {
+    this.direction = event.target.value;
+  }
+
+  onConfirm(event) {
+    event.preventDefault();
+    this.props.confirm({
+      tableName: this.tableName,
+      n: parseInt(this.min),
+      x: parseInt(this.step),
+      m: parseInt(this.max),
+      w: parseInt(this.width),
+      d: this.direction,
+    });
+  }
+
+  onCancel(event) {
+    this.state.cancel();
+  }
+
   render() {
     // initial state
     return (
-      <div className="config-fields">
-        <div className="label-field">
+      <form id="config-form" className="config-fields">
+        <div className="label-field table-name">
           <label className="config-label">Table: </label>
           <span className={this.tableName}>{this.tableName}</span>
         </div>
@@ -40,7 +74,7 @@ export class Configuration extends Component {
           <input type="number"
                  step="1"
                  className="config-field"
-                 value={this.activeTable}
+                 defaultValue={this.min}
                  onChange={this.onNChange.bind(this)} />
         </div>
         <div className="label-field">
@@ -48,38 +82,44 @@ export class Configuration extends Component {
           <input type="number"
                  step="1"
                  className="config-field"
-                 value={this.activeTable} />
+                 defaultValue={this.step} 
+                 onChange={this.onXChange.bind(this)}/>
         </div>
         <div className="label-field">
           <label className="config-label">M =</label>
           <input type="number"
                  step="1"
                  className="config-field"
-                 value={this.activeTable} />
+                 defaultValue={this.max} 
+                 onChange={this.onMChange.bind(this)}/>
         </div>
         <div className="label-field">
           <label className="config-label">W =</label>
           <input type="number"
                  step="1"
+                 min="10"
+                 max="100"
                  className="config-field"
-                 value={this.activeTable} />
+                 defaultValue={this.width} 
+                 onChange={this.onWChange.bind(this)}/>
           <span className="config-label">%</span>
         </div>
         <div className="label-field">
           <label className="config-label">D =</label>
           <select className="config-field"
-                  value={this.activeTable}>
+                  defaultValue={this.direction}
+                  onChange={this.onDChange.bind(this)}>
             <option value="LTR-UP">LTR-UP</option>
-            <option value="RTL-UP">LTR-UP</option>
-            <option value="LTR-DOWN">LTR-UP</option>
-            <option value="RTL-DOWN">LTR-UP</option>
+            <option value="RTL-UP">RTL-UP</option>
+            <option value="LTR-DOWN">LTR-DOWN</option>
+            <option value="RTL-DOWN">RTL-DOWN</option>
           </select>
         </div>
         <div className="button-row">
-          <button>OK</button>
-          <button>Cancel</button>
+          <button onClick={this.onConfirm.bind(this)}>OK</button>
+          <button onClick={this.onCancel.bind(this)}>Cancel</button>
         </div>
-      </div>
+      </form>
     );
   }
 }

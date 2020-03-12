@@ -12,7 +12,7 @@ export class TableRow extends Component {
 
   render() {
     const rowCells = this.cells.map((value, idx) => {
-      return <TableCell key={idx.toString()} 
+      return <TableCell key={Math.random()} 
                         cellValue={value} />
     })
     return (

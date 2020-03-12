@@ -19,18 +19,20 @@ export class Table extends React.Component {
   
   constructor(props) {
     super(props)
-    
-    this.tableConfig = props.settings;
-    this.isLtr = props.settings.d.charAt(0) === "L";
-    this.isUp = props.settings.d.charAt(4) === "U";
-    this.startNum = props.settings.n;
-    this.endNum = props.settings.m;
-    this.step = props.settings.x;
 
-    this.setCellsAndRowsNeeded(props.settings.n,
-                               props.settings.m,
-                               props.settings.x)
+    this.initTable(this.props);
+  }
 
+  initTable(settings) {
+    this.tableConfig = settings.settings;
+
+    this.isLtr = settings.settings.d.charAt(0) === "L";
+    this.isUp = settings.settings.d.charAt(4) === "U";
+    this.startNum = settings.settings.n;
+    this.endNum = settings.settings.m;
+    this.step = settings.settings.x;
+
+    this.setCellsAndRowsNeeded(settings.settings.n, settings.settings.m, settings.settings.x);
     this.buildAllTableRows();
   }
 
@@ -81,16 +83,14 @@ export class Table extends React.Component {
     return tempRow
   }
 
-
-
   onConfigure(event) {
     this.props.configure(this.tableConfig);
   }
 
   render() {
-    console.info('props', this.props.settings)
+    console.info('table rerender with props: ', this.props.settings);
     const tableRows = this.rows.map((value) => {
-      return <TableRow rowArr={value} />;
+      return <TableRow key={Math.random()} rowArr={value} />;
     })
     return (
       <div className="table">
@@ -99,7 +99,7 @@ export class Table extends React.Component {
         </section>
         <section className="info">
           <button className="configure-btn"
-                  onClick={(this.onConfigure.bind(this))}>
+                  onClick={() => this.props.configure(this.tableConfig)}>
             Configure
           </button>
           <span className="width-indicator">

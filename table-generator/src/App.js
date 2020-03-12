@@ -11,6 +11,9 @@ class App extends Component {
     rtlDown: 'RTL-DOWN',
   };
 
+  /**
+   * Default state object. This could be abstracted to a separate file.
+   */
   state = {
     activeTable: null,
     showComponent: false,
@@ -54,6 +57,11 @@ class App extends Component {
     this.onBlueChange = this.onBlueChange.bind(this);
   }
 
+  /**
+   * The configures all follow the same pattern: wait for rendering,
+   * then show the configuration component using the correct state property
+   * an animation here could ease the transition.
+   */
   onRedConfigure() {
     this.waitForStateChange();
     this.setState({
@@ -63,6 +71,12 @@ class App extends Component {
     })
   }
 
+  /**
+   * Table changes are all handled similarly: set the active table to null,
+   * close the configuration, then force a redraw.
+   * an animation here could ease the transition.
+   * @param {*} tableConfig 
+   */
   onRedChange(tableConfig) {
     this.setState({ showRed: false });
     if (this.state.activeTable) {
@@ -152,7 +166,6 @@ class App extends Component {
           </div> : null}
         </section>
         <section className="config-container">
-
           <div className="config-panel">
             {this.state.showComponent ? <Configuration settings={this.state.activeTable}
               confirm={this.state.confirm} cancel={() => {this.setState({showComponent: !this.state.showComponent})}} /> : null}

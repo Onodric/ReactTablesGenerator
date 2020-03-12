@@ -16,6 +16,10 @@ export class Configuration extends Component {
     this.initFields(props.settings);
   }
 
+  /**
+   * Initialize the show form fields, if there is a value to populate the field with
+   * @param {*} settings 
+   */
   initFields(settings) {
     this.tableName = settings && settings.tableName ? settings.tableName : null;
     this.min = settings && settings.n ? settings.n : null;
@@ -45,6 +49,10 @@ export class Configuration extends Component {
     this.direction = event.target.value;
   }
 
+  /**
+   * Prevent default form submit and package values for use in the table
+   * @param {*} event 
+   */
   onConfirm(event) {
     event.preventDefault();
     this.props.confirm({
@@ -58,11 +66,14 @@ export class Configuration extends Component {
   }
 
   onCancel(event) {
+    event.preventDefault();
     this.state.cancel();
   }
 
+  /**
+   * This component could be broken down and provided with custom validations in the number fields
+   */
   render() {
-    // initial state
     return (
       <form id="config-form" className="config-fields">
         <div className="label-field table-name">

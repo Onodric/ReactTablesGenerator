@@ -7,22 +7,25 @@ export class Table extends React.Component {
 
   numCellsNeeded = 0;
   numRowsNeeded = 0;
-  sizeOfArray = 0;
 
   startNum = 0;
   endNum = 0;
   step = 1
-  
+
   rows = [];
   textVertDir = true;
   textHorizDir = true;
-  
+
   constructor(props) {
     super(props)
 
     this.initTable(this.props);
   }
 
+  /**
+   * Set some internal variables based on the incoming props
+   * @param {*} settings 
+   */
   initTable(settings) {
     this.tableConfig = settings.settings;
 
@@ -36,51 +39,56 @@ export class Table extends React.Component {
     this.buildAllTableRows();
   }
 
-  setCellsAndRowsNeeded(min, max, step){
+  /**
+   * Helper to determine how many total cells are needed, 
+   * and how many rows of five are needed for the table.
+   * @param {*} min 
+   * @param {*} max 
+   * @param {*} step 
+   */
+  setCellsAndRowsNeeded(min, max, step) {
     this.numCellsNeeded = Math.ceil((max - min + 1) / step);
     this.numRowsNeeded = Math.ceil(this.numCellsNeeded / 5);
-    this.sizeOfArray = this.numRowsNeeded * 5;
   }
 
+  /**
+   * Builds all of the individual rows of the table
+   * This method does not work for negative step values (counting down)
+   */
   buildAllTableRows() {
+    // temp variable for flopping purposes
     let isLtr = this.isLtr;
+
+    // make an array of all the values
     let range = []
     for (let i = 0; i < this.numCellsNeeded; i++) {
       range.push(this.startNum + (i * this.step));
     }
+
+    // now cut it up into rows of five
     for (let j = 0; j < this.numRowsNeeded; j++) {
       let row = range.splice(0, 5);
+      // reverse the array of its Right-to-Left
       if (!isLtr) {
-        row = row.sort((a, b) => {return b - a});
+        row = row.sort((a, b) => { return b - a });
+        // pad the null values
         while (row.length < 5) {
           row.unshift(null);
         }
       } else {
-          while (row.length < 5) {
-            row.push(null);
-          }
+        while (row.length < 5) {
+          row.push(null);
+        }
       }
+      // add the row to the array based on vertical direction
       if (this.isUp) {
         this.rows.unshift(row);
       } else {
         this.rows.push(row);
       }
+      // flop the cell direction at the end of a line
       isLtr = !isLtr
     }
-  }
-
-  buildRow(isLtr, startNum, rowMult, endNum) {
-    let tempRow = [];
-    for (let i = startNum; i < (startNum + 5) * this.step; i += this.step) {
-      // if we go to the left, we need to unshift
-      if (isLtr) {
-        tempRow.unshift(i*rowMult <= endNum ? i*rowMult : null);
-      } else {
-        // else we push
-        tempRow.push(i*rowMult <= endNum ? i*rowMult : null);
-      }
-    }
-    return tempRow
   }
 
   onConfigure(event) {
@@ -88,7 +96,6 @@ export class Table extends React.Component {
   }
 
   render() {
-    console.info('table rerender with props: ', this.props.settings);
     const tableRows = this.rows.map((value) => {
       return <TableRow key={Math.random()} rowArr={value} />;
     })
@@ -99,7 +106,7 @@ export class Table extends React.Component {
         </section>
         <section className="info">
           <button className="configure-btn"
-                  onClick={() => this.props.configure(this.tableConfig)}>
+            onClick={() => this.props.configure(this.tableConfig)}>
             Configure
           </button>
           <span className="width-indicator">

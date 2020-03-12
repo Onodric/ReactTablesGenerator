@@ -10,6 +10,7 @@ export class TableRow extends Component {
     this.cells = props.rowArr;
   }
 
+  // We give a random key b/c some cels are duplicates (null)
   render() {
     const rowCells = this.cells.map((value, idx) => {
       return <TableCell key={Math.random()} 

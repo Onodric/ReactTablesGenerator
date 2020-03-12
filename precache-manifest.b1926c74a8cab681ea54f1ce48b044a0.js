@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "59a7e794d376bb5bc15b2dc8e52b20e9",
+    "revision": "99b4d85b5bc5856ca2ecfff807874522",
     "url": "/ReactTablesGenerator/index.html"
   },
   {
-    "revision": "e4b9030146151f14a514",
-    "url": "/ReactTablesGenerator/static/css/main.9b689d91.chunk.css"
+    "revision": "6a36ac7ad83f769b2b89",
+    "url": "/ReactTablesGenerator/static/css/main.72c6fe48.chunk.css"
   },
   {
     "revision": "8c1dc54f3320846906c0",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ReactTablesGenerator/static/js/2.87c9b25e.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "e4b9030146151f14a514",
-    "url": "/ReactTablesGenerator/static/js/main.fb229d80.chunk.js"
+    "revision": "6a36ac7ad83f769b2b89",
+    "url": "/ReactTablesGenerator/static/js/main.2f521144.chunk.js"
   },
   {
     "revision": "58e489224bc3a79109e5",

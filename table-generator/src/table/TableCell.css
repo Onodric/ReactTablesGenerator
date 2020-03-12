@@ -10,3 +10,7 @@
   align-content: flex-start;
   padding: 0.5rem;
 }
+
+.no-value {
+  background-color: grey;
+}

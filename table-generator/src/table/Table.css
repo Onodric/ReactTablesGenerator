@@ -13,12 +13,6 @@
     padding-top: 0.5rem;
 }
 
-/* .info .flex-container {
-    width: 50%;
-    display: flex;
-    justify-content: space-between;
-} */
-
 .info .width-indicator {
     align-self: end;
     font-size: larger;

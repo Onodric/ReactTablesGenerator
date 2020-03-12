@@ -2,15 +2,11 @@ import React, { Component } from 'react';
 import './TableCell.css';
 
 export class TableCell extends Component {
-  getContents = () => Math.floor(Math.random() * 20);
-
   render() {
-    // initial state
-
     return (
-      <div className="table-cell">
+      <div className={this.props.cellValue == null ? "table-cell no-value" : "table-cell"} >
         <span className="contents">
-          {this.getContents()}
+          {this.props.cellValue}
         </span>
       </div>
     );
